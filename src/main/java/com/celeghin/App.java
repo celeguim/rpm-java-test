@@ -1,14 +1,14 @@
 package com.celeghin;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
-}
+public class App {
+	String name = "Hidden";
+	
+	public App(String name) {
+		this.name = name;
+	}
 
+	String sayHello() {
+		System.out.println("Hello World " + name);
+		return name;
+	}
+}
