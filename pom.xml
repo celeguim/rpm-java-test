@@ -38,6 +38,19 @@
 					<target>11</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<finalName>
+						${project.artifactId}</finalName>
+
+
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>rpm-maven-plugin</artifactId>
@@ -100,7 +113,8 @@
 							<sources>
 								<softlinkSource>
 									<destination>${project.name}-start</destination>
-									<location>/opt/${project.name}/scripts/start.sh</location>
+									<location>
+										/opt/${project.name}/scripts/start.sh</location>
 								</softlinkSource>
 							</sources>
 						</mapping>
@@ -119,8 +133,8 @@
 					</preremoveScriptlet>
 					<postremoveScriptlet>
 						<script>
-							echo "Step 'Post-remove' begin..." ; 
-							rm -rf /opt/${project.name} ; 
+							echo "Step 'Post-remove' begin..." ;
+							rm -rf /opt/${project.name} ;
 							echo "Step 'Post-remove' finished."
 						</script>
 					</postremoveScriptlet>
@@ -130,4 +144,5 @@
 	</build>
 
 </project>
+
 
